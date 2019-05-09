@@ -1,0 +1,60 @@
+<nav class="raspy-nav">
+    <div class="container">
+        <div class="row">
+            <div class="raspy-brand-sm"></div><div class="raspy-nav-title">Raspy</div>
+            <button class="menu-button" (click)="openMenu()"></button>
+        </div>
+    </div>
+</nav>
+<div *ngIf="bracket" class="brackets">
+  <div class="sidebar" [ngClass]="{opened: menuOpened}">
+        <div class="raspy-brand-lg"></div>
+        <h1 class="raspy-brand">RASPY</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col"><h2>Bracket: {{bracket.detail.name}}</h2></div>
+            </div>
+            <div class="row">
+                <div class="col"><h4>Created: {{bracket.detail.created_date | date}}</h4></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col"><h3>Connected Users:</h3></div>
+            </div>
+            <br>
+            <div class="user-list">
+                <div *ngFor="let u of userList" class="connected-user">{{u}}</div>
+            </div>
+        </div>
+  </div>
+  <div class="brackets-main">
+    <div class="brackets-content">
+        <ul class="message-list" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+            <li *ngFor="let m of messages">
+                <span class="timestamp">{{m.timestamp | date:'medium'}} </span>
+                <br>
+                <span class="user"
+                    *ngIf="m.username">{{m.username}}: </span>
+                <span class="server-message"
+                    *ngIf="m.type==='serverMessage'">Server: </span>
+                <span class="content">{{m.content}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="message-box-footer">
+        <div class="message-box">
+            <form #f="ngForm" (ngSubmit)="onSendMessage(f)" novalidate>
+                <input ngModel
+                name="message"
+                class="input-box"
+                (keyup)="onMessageKeyUp($event)"
+                (keydown)="onMessageKeyDown($event)"
+                placeholder="Enter a message"/>
+            </form>
+        </div>
+        <div class="updates-terminal">
+            <div class="updates-terminal-message" [innerHTML]="typingMessage"></div>
+        </div>
+    </div>
+  </div>
+</div>

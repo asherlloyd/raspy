@@ -1,0 +1,166 @@
+.brackets {
+    height: inherit;
+    width: 100%;
+    display: table;
+}
+
+.brackets-main {
+    height: inherit;
+    display: table;
+    width: 100%;
+}
+
+.brackets-content {
+    display: table-cell;
+}
+
+.bracket-name {
+    padding: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    overflow-x: hidden;
+    width: 0;
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+    background: #0c0c0e;
+    color: #fff;
+    transition: .5s ease;
+    z-index: 1;
+    
+    @media screen and (min-width: 768px) {
+        width: 200px;
+        position: initial;
+    }
+}
+
+.sidebar.opened {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.raspy-brand-lg {
+    margin-top: 20px;
+}
+
+.message-box-footer {
+    display: table-row;
+    border-collapse: collapse;
+    height: 1px;
+    background: #74525f;
+    color: #fff;
+}
+
+.input-box {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.message-box,
+.updates-terminal-message {
+    padding-left: 20px;
+}
+
+.message-box:before {
+    content: ">";
+    display: block;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: -5px;
+}
+
+.updates-terminal:before {
+    content: "//";
+    display: block;
+    position: absolute;
+}
+
+.updates-terminal {
+    color: orange;
+    background-color: #000;
+    min-height: 43px;
+    padding: 10px;
+}
+
+.message-list {
+    font-size: 16px;
+    height: calc(100vh - 133px);
+    overflow-y: scroll;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+
+    @media screen and (min-width: 768px) {
+        height: calc(100vh - 81px);
+    }
+}
+
+.message-list::-webkit-scrollbar { width: 0 !important }
+
+.message-list li {
+    background-color: #26222c;
+    color: #AAA;
+    font-family: 'Ubuntu Mono', monospace;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+.timestamp {
+    color: aqua;
+}
+
+.user {
+    color: greenyellow;
+}
+
+.user-list {
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.user-list::-webkit-scrollbar { width: 0 !important }
+
+.connected-user {
+    background-color: #3c3746;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+.connected-user:before {
+    content: "• ";
+    color: greenyellow;
+}
+
+.raspy-nav {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.menu-button {
+    float: right;
+    background-color: transparent;
+    border: none;
+    background-image: url("../assets/icons/menu-btn.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+}

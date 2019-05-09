@@ -1,0 +1,24 @@
+<div class="bg-stars">
+    <div class="password-form-container">
+        <div class="password-form">
+            <div class="raspy-brand-lg"></div>
+            <div class="raspy-brand">Raspy</div>
+            <form #f="ngForm" (ngSubmit)="onLogin(f)" ngNativeValidate>
+                <label>Username</label>
+                <input ngModel
+                    name="username"
+                    class="username"
+                    [required]=true/>
+                <div *ngIf="!userExists" class="error-label">Username does not exist</div>
+                <label>Password</label>
+                <input ngModel
+                    name="password"
+                    class="password"
+                    type="password"
+                    [required]=true/>
+                <div *ngIf="!passwordValid" class="error-label">Password is incorrect</div>
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
+</div>

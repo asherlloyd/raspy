@@ -1,0 +1,25 @@
+<nav class="raspy-nav">
+    <div class="container">
+        <div class="row">
+            <div class="raspy-brand-sm"></div><div class="raspy-nav-title">Raspy</div>
+        </div>
+    </div>
+</nav>
+<div class="brackets-list">
+    <div class="container">
+        <h1>Brackets</h1>
+
+        <ul class="brackets-links">
+            <li *ngFor="let b of brackets" class="bracket-group">
+                <a routerLink="/brackets/{{b.id}}">
+                    <div class="row table-row align-mid">
+                        <div class="col fifth"><h2>{{b.name}}</h2></div>
+                        <div class="col four-fifths">
+                            <div class="created-date">| Created: {{b.created_date | date}}</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
